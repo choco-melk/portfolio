@@ -1,9 +1,9 @@
 ---
-import './../../global.css';
-import { href } from './../../state';
-import Header from './../../components/Header.astro';
+import './../global.css';
+import { href } from './../state';
+import Header from './../components/Header.astro';
 
-href.set(`${import.meta.env.BASE_URL}/blogs`);
+href.set(`${import.meta.env.BASE_URL}/projects`);
 ---
 
 <html lang="en">
@@ -15,6 +15,8 @@ href.set(`${import.meta.env.BASE_URL}/blogs`);
 	</head>
 	<body>
 		<Header/>
-		<h1>Blog</h1>
-    </body>
+		<h1>Project</h1>
+	</body>
 </html>
+
+

@@ -1,5 +1,9 @@
 ---
 import './../global.css';
+import { href } from './../state';
+import Header from './../components/Header.astro';
+
+href.set(`${import.meta.env.BASE_URL}/`);
 ---
 
 <html lang="en">
@@ -8,17 +12,9 @@ import './../global.css';
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Astro</title>
-		<style>
-			img {
-				width: 200px;
-				height: auto;
-			}
-		</style>
 	</head>
 	<body>
-		<h1>Astro</h1>
-		<p>Welcome to your new Astro project.</p>
-		<img src={`${import.meta.env.BASE_URL}/assets/hyacine.webp`} alt="Astro Logo"/>
-		<a href={`${import.meta.env.BASE_URL}/about/`}>About</a>
+		<Header/>
+		<h1>Home</h1>
 	</body>
 </html>

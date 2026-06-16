@@ -1,0 +1,18 @@
+---
+import './../global.css';
+import Navbar from './Navbar.astro';
+---
+
+<header>
+    <Navbar/>
+</header>
+
+<style>
+    @media screen and (min-width: 768px) {
+        header {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;        
+        }
+    }
+</style>

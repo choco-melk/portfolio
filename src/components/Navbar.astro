@@ -1,0 +1,53 @@
+---
+import { href } from "./../state";
+
+interface Route {
+    link: string;
+    name: string;
+}
+const routes: Route[] = [
+    {
+        "link": `${import.meta.env.BASE_URL}/`,
+        "name": "HOME"
+    },
+    {
+        "link": `${import.meta.env.BASE_URL}/about`,
+        "name": "ABOUT ME"
+    }, 
+    {
+        "link": `${import.meta.env.BASE_URL}/projects`,
+        "name": "PROJECTS"
+    }, 
+    {
+        "link": `${import.meta.env.BASE_URL}/blogs`,
+        "name": "BLOGS"
+    }
+]
+
+---
+
+
+<nav class="navbar">
+    {
+        routes.map(route => (
+            <a href={route.link} class={`navlink ${ (href.get() === route.link) && 'accentify'} `}> {route.name} </a>
+        ))
+    }
+</nav>
+
+<style>
+    @media screen and (min-width: 768px) {
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navlink {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-inline: 0.5rem;
+            margin-inline: 1rem;
+        }
+    }
+</style>

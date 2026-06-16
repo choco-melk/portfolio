@@ -5,5 +5,5 @@ import { defineConfig } from 'astro/config';
 export default defineConfig({
     site: 'https://choco-melk.github.io',
     base: '/portfolio',
-    // outDir: './portfolio',
+    outDir: './portfolio',
 });

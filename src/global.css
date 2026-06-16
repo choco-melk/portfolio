@@ -1,11 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&display=swap');
 
-html {
+
+:root {
     --color-primary: #430717;
     --color-accent: #FE9CB9;
     color: var(--color-primary);
-
-    font-size: 14px;
     font-family: 'Outfit', Arial, Helvetica, sans-serif;
 }
 
@@ -40,7 +39,10 @@ p, .text {
 }
 
 
-@media screen and (min-width: 960px) {
+@media screen and (min-width: 768px) {
+    html {
+        font-size: 14px;
+    }
     body {
         width: 768px;
         padding: 2rem;
