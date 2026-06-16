@@ -1,0 +1,52 @@
+<div class="feature">
+    <div class="body">
+        <div class="content">
+            <slot name="heading"/>
+            <slot name="text"/>
+        </div>
+        <div class="call-to-action">
+            <slot name="call-to-action"/>
+        </div>
+    </div>
+    
+    <figure>
+        <slot name="image"/>
+    </figure>
+</div>
+
+<style>
+    @media screen and (min-width: 768px) {
+        .feature {
+            display: flex;
+            gap: 2rem;
+        }
+        .feature > * {
+            margin-bottom: 2rem;
+        }
+        .feature figure {
+            width: 100%;
+        }
+        .feature figure :global(img) {
+            width: 100%;
+            height: 35vh;
+            object-fit: cover;
+        }
+        .feature .body {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        .feature .content {
+            height: inherit;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        .feature :global(.call-to-action > *) {
+            height: inherit;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+    }
+</style>

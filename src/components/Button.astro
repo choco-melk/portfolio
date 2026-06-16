@@ -1,0 +1,36 @@
+---
+interface Props {
+    href: string;
+    name: string;
+    icon?: string;
+    target?: string;
+}
+const { href, name, icon, target } = Astro.props;
+---
+
+<a href={href} target={target}>
+    <button>
+        {icon && <img src={icon}/>}
+        {name}
+    </button>
+</a>
+
+<style>
+    @media screen and (min-width: 768px) {
+        button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.75rem 2rem;
+            border: solid 3px var(--color-accent);
+            background-color: transparent;
+            font-family: 'Outfit', Arial, Helvetica, sans-serif;
+            cursor: pointer;
+        }
+        button img {
+            width: 24px;
+            aspect-ratio: 1/1;    
+        }
+    }
+</style>

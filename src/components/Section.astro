@@ -1,0 +1,61 @@
+<section class="section">
+    <figure>
+        <slot name="image"/>
+    </figure>
+    
+    <div class="body">
+        <div class="content">
+            <slot name="heading"/>
+            <slot name="text"/>
+        </div>
+        <div class="call-to-action">
+            <slot name="call-to-action"/>
+        </div>
+    </div>
+</div>
+
+<style>
+    @media screen and (min-width: 768px) {
+        .section {
+            display: flex;
+            flex-direction: column;
+        }
+        .section > * {
+            margin-bottom: 2rem;
+        }
+        .section figure {
+            width: 100%;
+            height: inherit;
+        }
+        .section figure :global(img) {
+            width: 100%;
+            height: 30vh;
+            object-fit: cover;
+        }
+        .section .body {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+        }
+        .section .content {
+            height: inherit;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        .section .call-to-action {
+            height: inherit;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: center;
+        }
+        .section :global(.call-to-action > *) {
+            height: inherit;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 1rem;
+        }
+    }
+</style>

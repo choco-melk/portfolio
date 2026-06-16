@@ -2,6 +2,7 @@
 import './../../global.css';
 import { href } from './../../state';
 import Header from './../../components/Header.astro';
+import Section from './../../components/Section.astro'
 
 href.set(`${import.meta.env.BASE_URL}/blogs`);
 ---
@@ -15,6 +16,14 @@ href.set(`${import.meta.env.BASE_URL}/blogs`);
 	</head>
 	<body>
 		<Header/>
-		<h1>Blog</h1>
+		<Section>
+			<div slot="heading">
+				<h3 class="accentify">BLOGS</h3>
+				<h1>Raw Blogs</h1>
+			</div>			
+			<p slot="text">
+                Here are all the posts that I created for talking about my experiences and announcements. Also named the title “Raw Blogs” cause Roblox.            
+            </p>		
+		</Section>
     </body>
 </html>

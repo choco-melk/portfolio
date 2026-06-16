@@ -1,0 +1,29 @@
+---
+interface Props {
+    href: string;
+    name: string;
+    icon?: string;
+    target?: string;
+    accent?: Boolean;
+}
+const { href, name, icon, target, accent } = Astro.props;
+---
+
+<a href={ href } class={`link ${ (accent) && "accentify"}`} target={target}>
+    {icon && <img src={icon}/> }
+    <h3>{name}</h3>
+</a>
+
+<style>
+    .link {
+        display: flex;
+        justify-content: content;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    .link img {
+        width: 24px;
+        aspect-ratio: 1/1;
+        object-fit: cover;
+    }
+</style>

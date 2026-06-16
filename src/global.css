@@ -8,6 +8,12 @@
     font-family: 'Outfit', Arial, Helvetica, sans-serif;
 }
 
+html {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
 body, body * {
     margin: 0;
     padding: 0;
@@ -27,7 +33,7 @@ h2, .heading {
 }
 h3, .subheading {
     font-weight: 400;
-    font-size: 0.875rem;
+    font-size: 1rem;
 }
 p, .text {
     font-family: 'Inter', Arial, Helvetica, sans-serif;
@@ -39,9 +45,9 @@ p, .text {
 }
 
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 576px) {
     html {
-        font-size: 14px;
+        font-size: 12px;
     }
     body {
         width: 768px;
@@ -52,4 +58,12 @@ p, .text {
         margin-bottom: 2rem;
     }
 }
+
+@media screen and (min-width: 768px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+
 
