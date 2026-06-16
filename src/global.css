@@ -19,6 +19,14 @@ body, body * {
     padding: 0;
     box-sizing: border-box;
 }
+body {
+    width: 768px;
+    padding: 3rem 2rem;
+    margin: auto;
+}
+body > * {
+    margin-bottom: 2rem;
+}
 
 a { 
     cursor: pointer;
@@ -44,18 +52,18 @@ p, .text {
     color: var(--color-accent);
 }
 
-
-@media screen and (min-width: 576px) {
-    html {
-        font-size: 12px;
-    }
+@media screen and (max-width: 576px) {
     body {
-        width: 768px;
-        padding: 2rem;
-        margin: auto;
+        padding: 3rem 1rem   
     }
     body > * {
-        margin-bottom: 2rem;
+        margin-bottom: 3rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    html {
+        font-size: 12px;
     }
 }
 
@@ -63,6 +71,10 @@ p, .text {
     html {
         font-size: 14px;
     }
+    body {
+        width: 768px;
+    }
+        
 }
 
 

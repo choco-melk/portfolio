@@ -8,11 +8,18 @@ import Navbar from './Navbar.astro';
 </header>
 
 <style>
-     @media screen and (min-width: 576px) {
+    header {
+        display: flex;
+        align-items: center;        
+    }
+    @media screen and (max-width: 576px) {
         header {
-            display: flex;
+            justify-content: flex-end;
+        }
+    }
+    @media screen and (min-width: 576px) {
+        header {
             justify-content: center;
-            align-items: center;        
         }
     }
     

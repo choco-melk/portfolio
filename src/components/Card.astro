@@ -15,52 +15,57 @@
 </div>
 
 <style>
-    @media screen and (min-width: 768px) {
-        .card {
-            display: grid;
-            grid-template-columns: 200px 1fr;
-            gap: 2rem;
-        }
-        .card > * {
-            margin-bottom: 2rem;
-        }
-
-        /* Card Image */
-        .card figure {
-            width: 100%;
-        }
-        .card figure :global(img) {
-            width: 100%;
-            aspect-ratio: 1/1;
-            object-fit: cover;
-        }
-
-        /* Card Content */
-        .card .body {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-        .card .content {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-        .card :global(.call-to-action) {
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-        }
-        .card :global(.call-to-action > *) {
-            height: inherit;
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-        }
-        .card :global(.call-to-action a) {
-            color: #FE9CB9;        
-        }
-    
-
+    .card {
+        display: grid;
+        grid-template-columns: 200px 1fr;
+        gap: 2rem;
     }
+    .card > * {
+        margin-bottom: 2rem;
+    }
+
+    /* Card Image */
+    .card figure {
+        width: 100%;
+    }
+    .card figure :global(img) {
+        width: 100%;
+        aspect-ratio: 1/1;
+        object-fit: cover;
+    }
+
+    /* Card Content */
+    .card .body {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .card .content {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    .card :global(.call-to-action) {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+    .card :global(.call-to-action > *) {
+        height: inherit;
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+    }
+    .card :global(.call-to-action a) {
+        color: #FE9CB9;        
+    }
+    
+    @media screen and (max-width: 576px) {
+        .card {
+            grid-template-columns: 100px 1fr;
+            gap: 1rem;
+        }
+    }
+
+    
 </style>
