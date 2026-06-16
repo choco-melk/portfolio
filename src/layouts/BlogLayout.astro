@@ -3,8 +3,7 @@ import './../global.css'
 import Header from './../components/Header.astro'
 import { href } from './../state';
 
-const BASE = (import.meta.env.BASE_URL || '/').replace(/\/$/, '');
-href.set(`${BASE}/blogs`);
+href.set(`${import.meta.env.BASE_URL}/blogs`);
 ---
 
 <html lang="en">
