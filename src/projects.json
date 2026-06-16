@@ -1,0 +1,19 @@
+[
+    {
+        "id": 1,
+        "name": "Bombasm",
+        "image": "assets/project/bombasm.png",
+        "tech-stack": ["HTML", "CSS", "JavaScript"],
+        "description": "Created a simple gamified experience for learning bitwise operations by converting one binary number to another using already set bitwise instructions. Collaborated on the frontend development using HTML, CSS, & JS, and assets development of the website using Figma.",
+        "project-link": "https://cl4-bisk.github.io/BOMBASM/",
+        "github-link": "https://github.com/CL4-Bisk/BOMBASM/"
+    },
+    {
+        "id": 2,
+        "name": "UPDi Ko!",
+        "tech-stack": ["ReactJS", "Supabase"],
+        "description": "Collaborated in creating a locator map for locating services near UPV. Experienced in collaboration with a team of five and the software development cycle using Agile. Helped with working on the design using Figma and the frontend using ReactJS Library",
+        "project-link": "https://updiko.vercel.app/",
+        "github-link": "https://github.com/Adobo-Mappers/UPdiKo"
+    } 
+]

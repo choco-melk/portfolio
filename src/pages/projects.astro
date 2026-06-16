@@ -2,8 +2,15 @@
 import './../global.css';
 import { href } from './../state';
 import Header from './../components/Header.astro';
+import Section from './../components/Section.astro';
+import Button from './../components/Button.astro';
+import Link from './../components/Link.astro';
+import type { CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
 
 href.set(`${import.meta.env.BASE_URL}/projects`);
+const projects: CollectionEntry<'projects'>[] = await getCollection("projects");
+
 ---
 
 <html lang="en">
@@ -15,7 +22,35 @@ href.set(`${import.meta.env.BASE_URL}/projects`);
 	</head>
 	<body>
 		<Header/>
-		<h1>Project</h1>
+		<Section>
+			<div slot="heading">
+				<h3 class="subheading accentify">PROJECTS</h3>
+				<h1 class="title">Project Display</h1>
+			</div>			
+			<p slot="text">
+                Attached are all of the projects that I have created or collaborated with others.			
+            </p>
+		</Section>
+		{
+				projects.map((project) => (
+				<Section>
+					{project.data.image && <img src={`${import.meta.env.BASE_URL}/${project.data.image}`} slot="image"/>}
+					<div slot="heading">
+						<h3 class="subheading accentify">
+							{project.data['tech-stack'].map((tech: string) => <span>{tech} </span>)}
+						</h3>
+						<h2 class="heading">{project.data.name}</h2>
+					</div>
+					<div slot="text">
+						<p>{project.data.description}</p>
+					</div>
+					<div slot="call-to-action">
+						{project.data['project-link'] && <Button href={project.data['project-link']} name="View Project" target="_blank"/>}
+						{project.data['github-link'] && <Link href={project.data['github-link']} name="View in Github" icon={`${import.meta.env.BASE_URL}/assets/github.png`} target="_blank"/>}
+					</div>
+				</Section>
+			))
+		}
 	</body>
 </html>
 
