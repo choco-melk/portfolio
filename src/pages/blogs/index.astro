@@ -3,8 +3,15 @@ import './../../global.css';
 import { href } from './../../state';
 import Header from './../../components/Header.astro';
 import Section from './../../components/Section.astro'
+import Card from './../../components/Card.astro';
+import Link from './../../components/Link.astro';
+import type { CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
+
 
 href.set(`${import.meta.env.BASE_URL}/blogs`);
+const blogs = await getCollection('blogs');
+
 ---
 
 <html lang="en">
@@ -25,5 +32,23 @@ href.set(`${import.meta.env.BASE_URL}/blogs`);
                 Here are all the posts that I created for talking about my experiences and announcements. Also named the title “Raw Blogs” cause Roblox.            
             </p>		
 		</Section>
+		{
+			blogs.map((blog) => ( 
+				<Card>
+					<img src={ (blog.data.image) ? `${import.meta.env.BASE_URL}/${blog.data.image}`: `${import.meta.env.BASE_URL}/assets/hyacine-2.avif`} slot="image"/>
+					<div slot="heading">
+						<h3 class="subheading accentify">{blog.data.date}</h3>
+						<h2 class="heading">{blog.data.title}</h2>
+					</div>			
+					<p slot="text">
+						{blog.data.preview}
+					</p>
+					<div slot="call-to-action" class="accentify">
+						<Link href={`${import.meta.env.BASE_URL}/blogs/${blog.id}`} name="See More →"/>
+					</div>
+				</Card>			
+			))
+		}
+
     </body>
 </html>

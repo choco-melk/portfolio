@@ -1,0 +1,31 @@
+---
+import BreadCrumbs from '../../components/BreadCrumbs.astro';
+import BlogLayout from '../../layouts/BlogLayout.astro';
+import { href } from './../../state';
+import { getCollection, render } from 'astro:content';
+
+href.set(`${import.meta.env.BASE_URL}/blogs`);
+
+export async function getStaticPaths() {   
+    const blogs = await getCollection('blogs');
+
+    return blogs.map((blog) => {
+        return {
+            params: { id: blog.id },
+            props: { blog }
+        }
+    })
+} 
+
+const { blog } = Astro.props;
+const { Content } = await render(blog);
+---
+
+<BlogLayout>
+    <main>
+        <BreadCrumbs links={[{'href': `${import.meta.env.BASE_URL}/`, 'name': "Home"}, {'href': `${import.meta.env.BASE_URL}/blogs`, 'name': "Blogs"},]}/>
+        <!-- <Breadcrumbs routes={[{'link': `${BASE}/`, 'name': 'Home'}, {'link': `${BASE}/blogs`, 'name': 'Blogs'}]}/> -->
+        <img class="banner-image" src={`${import.meta.env.BASE_URL}/${(blog.data.image)}`}>
+        <Content/>
+    </main>
+</BlogLayout>

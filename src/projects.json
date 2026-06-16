@@ -8,7 +8,7 @@
         "project-link": "https://cl4-bisk.github.io/BOMBASM/",
         "github-link": "https://github.com/CL4-Bisk/BOMBASM/"
     },
-    {
+    { 
         "id": 2,
         "name": "UPDi Ko!",
         "tech-stack": ["ReactJS", "Supabase"],
