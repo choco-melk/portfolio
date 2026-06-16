@@ -2,6 +2,8 @@
 import './../global.css';
 import { href } from './../state';
 import Header from './../components/Header.astro';
+import Section from './../components/Section.astro';
+import Link from './../components/Link.astro';
 
 href.set(`${import.meta.env.BASE_URL}/about`);
 ---
@@ -15,6 +17,18 @@ href.set(`${import.meta.env.BASE_URL}/about`);
 	</head>
 	<body>
 		<Header/>
-		<h1>About Me</h1>
+		<Section>
+			<img src={`${import.meta.env.BASE_URL}/assets/hyacine-2.avif`} slot="image"/>
+			<div slot="heading">
+				<h3 class="subheading accentify">ABOUT ME</h3>
+				<h1 class="title">What I Am</h1>
+			</div>			
+			<p slot="text">
+				Experienced with frontend web development and UI/UX. Very active in team settings, supportive, and enthusiastic about learning new technologies and collaborating with others. Looking to start a career as an entry-level software engineer and designer. Knowledgeable in React and Astro frameworks with good foundations in Figma and HTML/CSS/JS.			</p>
+			<div slot="call-to-action">
+				<Link href="https://facebook.com/christianjave.hulleza" name="christianjave.hulleza" icon={`${import.meta.env.BASE_URL}/assets/facebook.png`} target="_blank"/>
+				<Link href="https://github.com/choco-melk" name="choco-melk" icon={`${import.meta.env.BASE_URL}/assets/github.png`} target="_blank"/>
+			</div>
+		</Section>
 	</body>
 </html>
