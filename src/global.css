@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&display=swap');
+
+html {
+    --color-primary: #430717;
+    --color-accent: #FE9CB9;
+    color: var(--color-primary);
+
+    font-size: 14px;
+    font-family: 'Outfit', Arial, Helvetica, sans-serif;
+}
+
+body, body * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a { 
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--color-primary);
+}
+h1, .title {
+    font-size: 2rem;
+}
+h2, .heading {
+    font-size: 1.5rem;
+}
+h3, .subheading {
+    font-weight: 400;
+    font-size: 0.875rem;
+}
+p, .text {
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-weight: 200;
+    font-size: 1rem;
+}
+.accentify {
+    color: var(--color-accent);
+}
+
+
+@media screen and (min-width: 960px) {
+    body {
+        width: 768px;
+        padding: 2rem;
+        margin: auto;
+    }
+    body > * {
+        margin-bottom: 2rem;
+    }
+}
+
