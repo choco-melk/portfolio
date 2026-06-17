@@ -38,7 +38,7 @@ const { Content } = await render(blog);
                 <NextPage href={`${import.meta.env.BASE_URL}/blogs/${nextBlog.id}`}>
                     <img src={ (nextBlog.data.image) ? `${import.meta.env.BASE_URL}/${nextBlog.data.image}`: `${import.meta.env.BASE_URL}/assets/hyacine-2.avif`} slot="image"/>
                     <div slot="heading">
-                        <h4 class="heading">{nextBlog.data.title}</h4>
+                        <h2 class="heading">{nextBlog.data.title}</h2>
                     </div>			
                     <p slot="text">
                         {nextBlog.data.preview}
@@ -49,7 +49,7 @@ const { Content } = await render(blog);
                 <PreviousPage href={`${import.meta.env.BASE_URL}/blogs/${previousBlog.id}`}>
                     <img src={ (previousBlog.data.image) ? `${import.meta.env.BASE_URL}/${previousBlog.data.image}`: `${import.meta.env.BASE_URL}/assets/hyacine-2.avif`} slot="image"/>
                     <div slot="heading">
-                        <h4 class="heading">{previousBlog.data.title}</h4>
+                        <h2 class="heading">{previousBlog.data.title}</h2>
                     </div>			
                     <p slot="text">
                         {previousBlog.data.preview}

@@ -3,12 +3,19 @@ import './../global.css';
 import { href } from './../state';
 import Header from './../components/Header.astro';
 import Section from './../components/Section.astro';
-import Feature from './../components/Feature.astro';
-import Card from './../components/Card.astro';
+import Feature from '../components/Feature.astro';
 import Button from '../components/Button.astro';
-import Link from '../components/Link.astro';
+import Link from './../components/Link.astro'
+import { getCollection } from 'astro:content';
+
+const blogs = (await getCollection('blogs'))
+const projects = (await getCollection('projects'))
+
+const latestBlog = blogs[blogs.length - 1];
+const latestProject = projects[projects.length - 1];
 
 href.set(`${import.meta.env.BASE_URL}/`);
+
 ---
 
 <html lang="en">
@@ -19,7 +26,6 @@ href.set(`${import.meta.env.BASE_URL}/`);
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
-
 		<title>Astro</title>
 	</head>
 	<body>
@@ -37,5 +43,33 @@ href.set(`${import.meta.env.BASE_URL}/`);
 				<Button href={`${import.meta.env.BASE_URL}/projects/`} name='View Projects'/>
 			</div>
 		</Section>
+		<Feature>
+			{ latestBlog.data.image && <img src={`${import.meta.env.BASE_URL}/${latestBlog.data.image}`} slot="image"/> }
+			<div slot="heading">
+				<h3 class="accentify">LATEST BLOG</h3>
+				<h2>{latestBlog.data.title}</h2>
+				<h3>{latestBlog.data.date}</h3>
+			</div>
+			<p slot="text">
+				{latestBlog.data.preview}
+			</p>
+			<div slot="call-to-action">
+				<Button href={`${import.meta.env.BASE_URL}/blogs/${latestBlog.id}`} name='View Post'/>
+			</div>
+		</Feature>
+		<Feature>
+			{ latestProject.data.image && <img src={`${import.meta.env.BASE_URL}/${latestProject.data.image}`} slot="image"/> }
+			<div slot="heading">
+				<h3 class="accentify">LATEST PROJECT</h3>
+				<h2>{latestProject.data.name}</h2>
+			</div>
+			<p slot="text">
+				{latestProject.data.description}
+			</p>
+			<div slot="call-to-action">
+				<Button href={latestProject.data['project-link'] || ""} name='View Live'/>
+				<Link href={latestProject.data['github-link'] || ""} name='View Github' icon={`${import.meta.env.BASE_URL}/assets/github.png`}/>		
+			</div>
+		</Feature>
 	</body>
 </html>
