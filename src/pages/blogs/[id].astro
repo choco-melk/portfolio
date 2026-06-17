@@ -1,30 +1,85 @@
 ---
 import Breadcrumbs from './../../components/Breadcrumbs.astro';
 import BlogLayout from './../../layouts/BlogLayout.astro';
+import NextPage from './../../components/NextPage.astro';
+import PreviousPage from './../../components/PreviousPage.astro';
 import { href } from './../../state';
 import { getCollection, render } from 'astro:content';
 
 href.set(`${import.meta.env.BASE_URL}/blogs`);
 
 export async function getStaticPaths() {   
-    const blogs = await getCollection('blogs');
-
-    return blogs.map((blog) => {
+    const blogs = (await getCollection('blogs'))
+    return blogs.map((blog, index) => {
+        const previousBlog = (index === 0) ? null : blogs[index - 1];
+        const nextBlog = (index === blogs.length - 1) ? null : blogs[index + 1];
         return {
             params: { id: blog.id },
-            props: { blog }
+            props: { blog, previousBlog, nextBlog }
         }
     })
 } 
 
-const { blog } = Astro.props;
+const { blog, previousBlog, nextBlog } = Astro.props;
 const { Content } = await render(blog);
----
 
+---
 <BlogLayout>
-    <main>
+    <main class="post-container">
         <Breadcrumbs links={[{'href': `${import.meta.env.BASE_URL}/`, 'name': "Home"}, {'href': `${import.meta.env.BASE_URL}/blogs`, 'name': "Blogs"}]}/>
         <img class="banner-image" src={`${import.meta.env.BASE_URL}/${(blog.data.image)}`}>
-        <Content/>
+        <div class="content">
+            <h3 class="accentify">{blog.data.date}</h3>
+            <h2>{blog.data.title}</h2>
+            <Content/>
+        </div>
+        <div class="next-and-previous-page-container">
+            { nextBlog &&    
+                <NextPage href={`${import.meta.env.BASE_URL}/blogs/${nextBlog.id}`}>
+                    <img src={ (nextBlog.data.image) ? `${import.meta.env.BASE_URL}/${nextBlog.data.image}`: `${import.meta.env.BASE_URL}/assets/hyacine-2.avif`} slot="image"/>
+                    <div slot="heading">
+                        <h4 class="heading">{nextBlog.data.title}</h4>
+                    </div>			
+                    <p slot="text">
+                        {nextBlog.data.preview}
+                    </p>
+                </NextPage>
+            }
+            { previousBlog &&    
+                <PreviousPage href={`${import.meta.env.BASE_URL}/blogs/${previousBlog.id}`}>
+                    <img src={ (previousBlog.data.image) ? `${import.meta.env.BASE_URL}/${previousBlog.data.image}`: `${import.meta.env.BASE_URL}/assets/hyacine-2.avif`} slot="image"/>
+                    <div slot="heading">
+                        <h4 class="heading">{previousBlog.data.title}</h4>
+                    </div>			
+                    <p slot="text">
+                        {previousBlog.data.preview}
+                    </p>
+                </PreviousPage>
+            }
+        </div>
     </main>
+    <style>
+        .post-container .banner-image {
+            width: 100%;
+            max-height: 250px;
+            object-fit: cover;
+            margin-bottom: 1rem;
+        }
+        .post-container .content :global(h1), .post-container .content :global(h2) {
+            margin-bottom: 2rem;
+        }
+        .post-container .content :global(p) {
+            width: 80%;
+            margin-bottom: 1.5rem;
+        }
+        .post-container :global(h3) {
+            color: #FE9CB9;
+        }
+        .post-container .next-and-previous-page-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-top: 6rem;
+        }
+    </style>
 </BlogLayout>

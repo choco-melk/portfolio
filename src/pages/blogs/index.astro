@@ -10,7 +10,7 @@ import { getCollection } from 'astro:content';
 
 
 href.set(`${import.meta.env.BASE_URL}/blogs`);
-const blogs = await getCollection('blogs');
+const blogs = (await getCollection('blogs')).reverse();
 
 ---
 

@@ -1,0 +1,53 @@
+---
+const { href } = Astro.props;
+---
+<a href={href}>
+    <div class="next-page">
+        <div class="body">
+            <h3 class="accentify">NEXT</h3>
+            <slot name="heading"/>
+            <slot name="text"/>
+        </div>
+        <figure>
+            <slot name="image"/>
+        </figure>
+
+    </div>
+</a>
+
+<style>
+    .next-page {
+        display: grid;
+        grid-template-columns: 1fr 150px;
+        gap: 2rem;
+    }
+
+    .next-page figure {
+        width: 100%;
+    }
+    .next-page figure :global(img) {
+        width: 100%;
+        aspect-ratio: 1/1;
+        object-fit: cover;
+    }
+
+    .next-page .body {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 0.5rem
+    }
+
+    .next-page .body :global(*) {
+        text-align: end;
+    }
+
+    @media screen and (max-width: 576px) {
+        ..next-page {
+            grid-template-columns: 100px 1fr;
+            gap: 1rem;
+        }
+    }
+
+    
+</style>

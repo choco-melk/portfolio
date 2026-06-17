@@ -1,0 +1,52 @@
+---
+const { href } = Astro.props;
+---
+<a href={href}>
+    <div class="previous-page">
+        <figure>
+            <slot name="image"/>
+        </figure>
+        <div class="body">
+            <h4 class="accentify">PREVIOUS</h4>
+            <slot name="heading"/>
+            <slot name="text"/>
+        </div>
+    </div>
+</a>
+
+<style>
+    .previous-page {
+        display: grid;
+        grid-template-columns: 150px 1fr;
+        gap: 2rem;
+    }
+
+    .previous-page figure {
+        width: 100%;s
+    }
+    .previous-page figure :global(img) {
+        width: 100%;
+        aspect-ratio: 1/1;
+        object-fit: cover;
+    }
+
+    .previous-page .body {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem
+    }
+
+    .previous-page .body :global(*) {
+        text-align: start;
+    }
+
+    @media screen and (max-width: 576px) {
+        ..previous-page {
+            grid-template-columns: 100px 1fr;
+            gap: 1rem;
+        }
+    }
+
+    
+</style>
