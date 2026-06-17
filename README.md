@@ -1,43 +1,15 @@
-# Astro Starter Kit: Minimal
+# My Portfolio Website
 
-```sh
-npm create astro@latest -- --template minimal
-```
+A  portfolio website built with Astro showcasing projects and blog posts. This is also just me practicing my skills with Astro, but this will be my active portfolio from now on.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+**Visit:** https://choco-melk.github.io/portfolio/
 
-## 🚀 Project Structure
+## Description
 
-Inside of your Astro project, you'll see the following folders and files:
+A beautiful and responsive portfolio website featuring project showcases and blog articles. The site demonstrates clean web design principles with a focus on user experience and performance.
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+## Tech Stack
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- **[Astro](https://astro.build/)** - Frontend Framework
+- **[Nanostores](https://github.com/nanostores/nanostores)** - State management 
+- **Node.js** >= 22.12.0
